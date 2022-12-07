@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Products</title>
+    <title>Article Profile</title>
     <%- include("partials/head") -%>
 </head>
 
@@ -15,25 +15,25 @@
 
     <div class="container p-4">
         <div class="row">
-            <div class="card-columns">
-
-                <% products.forEach(function (product) { %>
+            <div class="col-md-4 offset-md-4">
 
                 <div class="card animated fadeInDown">
                     <img src="<%= product.path %>" class="card-img-top" alt="<%= product.filename %>">
                     <div class="card-body">
-                        <h5 class="card-title"> <%= product.title %> </h5>
+                        <h5 class="card-title"><%= product.title %></h5>
                         <p class="card-text"><%= product.description %></p>
                         <p class="card-text"><%= product.precio %></p>
-                        <p class="card-text"><%= format(product.created_at) %></p>
-                        <a href="/imageProduct/<%= product._id %>" class="btn btn-primary">
-                            Ver Producto
+                        <p><%= format(product.created_at) %></p>
+                        <a href="/imageProduct/<%= product._id%>/delete" class="btn btn-danger btn-block">
+                            Eliminar articulo
                         </a>
-
+                        <a href="/product/<%= product._id%>/delete" class="btn btn-success btn-block">
+                            Editar articulo 
+                        </a>
                     </div>
                 </div>
-                <% }) %>
             </div>
+
         </div>
     </div>
 

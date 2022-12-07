@@ -1,8 +1,9 @@
 const { Schema, model } = require('mongoose');
 
-const imageSchema = new Schema({
+const productSchema = new Schema({
     title: {type: String},
     description: {type: String},
+    precio: {type: Number},
     filename: {type: String},
     path: {type: String},
     originalname: {type: String},
@@ -12,4 +13,4 @@ const imageSchema = new Schema({
     
 });
 
-module.exports = model('Image', imageSchema);
+module.exports = model('Product', productSchema);

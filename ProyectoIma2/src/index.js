@@ -16,6 +16,8 @@ app.set('view engine', 'ejs');
 
 //Middlewares
 app.use(morgan('dev'));
+
+
 //urlencoded ayuda a entender los datos que vienen de un formulario
 app.use(express.urlencoded({extended: false}));
 const storage = multer.diskStorage({
@@ -24,10 +26,11 @@ const storage = multer.diskStorage({
         console.log(file);
         cb(null, uuid() + path.extname(file.originalname));
     }
-}) 
+})   
 app.use(multer({
     storage: storage
 }).single('image'));
+
 
 //Variables globales
 app.use((req, res, next)=>{
